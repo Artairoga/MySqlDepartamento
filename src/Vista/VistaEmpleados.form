@@ -153,18 +153,33 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtnumEmpleado">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtnumEmpleadoFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnumEmpleadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDepartamento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contabilidad"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDirector">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Maroto"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtApellido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Apellido"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSalario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1000"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSalarioActionPerformed"/>
       </Events>

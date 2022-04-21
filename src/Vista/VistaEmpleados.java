@@ -21,6 +21,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
         initComponents();
         Conexion.CrearBD();
         lblFechaAlta.setText("");
+        
     }
 
     /**
@@ -68,6 +69,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
 
         jLabel6.setText("Salario");
 
+        txtnumEmpleado.setText("10");
         txtnumEmpleado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtnumEmpleadoFocusLost(evt);
@@ -79,6 +81,13 @@ public class VistaEmpleados extends javax.swing.JFrame {
             }
         });
 
+        txtDepartamento.setText("Contabilidad");
+
+        txtDirector.setText("Maroto");
+
+        txtApellido.setText("Apellido");
+
+        txtSalario.setText("1000");
         txtSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSalarioActionPerformed(evt);
@@ -201,33 +210,26 @@ public class VistaEmpleados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
-        Integer id_DEP,id_jefe;
-        ResultSet Resultados;
+        /**/
         try {
             if(txtnumEmpleado.getText().isEmpty()||txtApellido.getText().isEmpty()||txtDepartamento.getText().isEmpty()||txtSalario.getText().isEmpty()){
                 System.err.println("Faltan datos");
-                lblInfo.setText("Faltan datos!");
+                lblInfo.setText("Faltan datos");
             }else{
+                /*Procedo a crear el empleado*/
                 if(Integer.parseInt(txtSalario.getText())>0){
-                    //Añadir "a lo bruto" Gestionar si la clave esta duplicada
-                    //Buscar el id del jefe con una consulta,si el campo esta vacio no tiene jefe,si la consutlta no devuelve nada,no existe dicho jefe/esta mal escrito
-                    //Buscar el id del departamento con una consulta,si la consulta no devuelve nada,no existe dicho dep/esta mal escrito
-                    //fecha de alta,fecha del equipo
-                    Controlador.Consultas.InsertEmpleado(0, "apellido", "director_ap", 0, "dept_no");
-                    //Crear empleado/insert de empleado
-                    lblInfo.setText("Alta correcta");
-                    txtApellido.setText("");
-                    txtDepartamento.setText("");
-                    txtDirector.setText("");
-                    txtSalario.setText("");
-                }else{
-                   System.err.println("Sueldo inferior a 0");
-                    lblInfo.setText("Sueldo Inferior a 0!"); 
+                    /*Añadir a lo bruto Gestionar si la clave esta duplicada
+                    Buscar el id del jefe con una consulta,si el campo esta vacio no tiene jefe,si la consutlta no devuelve nada,no existe dicho jefeesta mal escrito
+                    Buscar el id del departamento con una consulta,si la consulta no devuelve nada,no existe dicho depesta mal escrito
+                    fecha de alta,fecha del equipo
+                    */
+                     Controlador.Consultas.InsertEmpleado(Integer.parseInt(txtnumEmpleado.getText()),txtApellido.getText(),txtDirector.getText(),Double.parseDouble(txtSalario.getText()),txtDepartamento.getText());
+                    
                 }
+                
             }
         } catch (Exception e) {
-            System.err.println(e);
-            lblInfo.setText(e.getMessage());
+            System.out.println(e);
         }
     }//GEN-LAST:event_btnAltaActionPerformed
 
